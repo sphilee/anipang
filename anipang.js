@@ -16,11 +16,11 @@ class Anipang {
     }
     checkPang() {
         this.isCheck = false;
-        this.checkRow().checkCol().fillPang();
+        this.checkRow().checkCol().arrangePang();
         if (this.isCheck) this.checkPang();
     }
-    fillPang() {
-        this.arr = this.transpose(this.transpose(this.arr).map((row) => {
+    arrangePang() {
+        this.arr = this.transpose(this.transpose(this.arr).map(row => {
             const newRow = row.filter(item => item !== 0);
             let length = newRow.length;
             while (length < this.length) {
@@ -32,14 +32,14 @@ class Anipang {
         return this;
     }
     checkRow() {
-        this.arr.forEach((row, i) => {
+        this.arr.forEach(row => {
             row.forEach((v, j, rowArr) => this.erase(v, j, rowArr));
             return row;
         });
         return this;
     }
     checkCol() {
-        this.arr = this.transpose(this.transpose(this.arr).map((col, i) => {
+        this.arr = this.transpose(this.transpose(this.arr).map(col => {
             col.forEach((v, j, colArr) => this.erase(v, j, colArr));
             return col;
         }));
