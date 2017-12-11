@@ -32,7 +32,7 @@ class Anipang {
         return this;
     }
     checkRow() {
-        this.arr.forEach(row => {
+        this.arr = this.arr.map(row => {
             row.forEach((v, j, rowArr) => this.erase(v, j, rowArr));
             return row;
         });
