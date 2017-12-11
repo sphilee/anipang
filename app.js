@@ -13,5 +13,5 @@ const { Anipang } = require('./anipang');
 
     const anipang = new Anipang(input);
     anipang.start();
-    anipang.pringPang();
+    anipang.printPang();
 }());
