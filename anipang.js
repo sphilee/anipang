@@ -1,11 +1,11 @@
-class Anipang {
+module.exports = class Anipang {
     constructor(arr) {
-        this.arr = arr;
+        this.arr = JSON.parse(JSON.stringify(arr));
         this.length = arr.length;
         this.isCheck = false;
     }
 
-    start() {
+    startPang() {
         this.checkPang();
     }
     printPang() {
@@ -33,19 +33,19 @@ class Anipang {
     }
     checkRow() {
         this.arr = this.arr.map(row => {
-            row.forEach((v, j, rowArr) => this.erase(v, j, rowArr));
+            row.forEach((v, j, rowArr) => this.erasePang(v, j, rowArr));
             return row;
         });
         return this;
     }
     checkCol() {
         this.arr = this.transpose(this.transpose(this.arr).map(col => {
-            col.forEach((v, j, colArr) => this.erase(v, j, colArr));
+            col.forEach((v, j, colArr) => this.erasePang(v, j, colArr));
             return col;
         }));
         return this;
     }
-    erase(v, j, Arr) {
+    erasePang(v, j, Arr) {
         let pangCnt = 1;
         Arr.slice(j + 1).some(compareNum => {
             if (compareNum === v && v !== 0) pangCnt++;
@@ -57,7 +57,3 @@ class Anipang {
         }
     }
 }
-
-module.exports = {
-    Anipang
-};
