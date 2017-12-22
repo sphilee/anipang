@@ -1,7 +1,7 @@
-const { Anipang } = require('./anipang');
-
 (function () {
     "use strict";
+
+    const Anipang = require('./anipang');
 
     const input = [
         [2, 4, 1, 2, 1],
@@ -12,6 +12,6 @@ const { Anipang } = require('./anipang');
     ];
 
     const anipang = new Anipang(input);
-    anipang.start();
+    anipang.startPang();
     anipang.printPang();
 }());
